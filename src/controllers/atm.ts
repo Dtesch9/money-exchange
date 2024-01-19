@@ -1,4 +1,5 @@
 import type { RouteHandler } from 'fastify';
+
 import { getExchangeNotes } from '../services/getExchangeNotes';
 
 type Params = { Params: { userId: string; amount: number } };
