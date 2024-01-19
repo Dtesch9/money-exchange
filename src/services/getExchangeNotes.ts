@@ -5,22 +5,22 @@ type Note = string;
 export type ExchangeReturn = ReturnType<typeof getExchangeNotes>;
 // Test this with vitest
 export function getExchangeNotes(withdrawAmount: number) {
-  let amountRemaining = withdrawAmount;
+	let amountRemaining = withdrawAmount;
 
-  const exchangeToWithdraw: Array<Record<Note, number>> = [];
+	const exchangeToWithdraw: Array<Record<Note, number>> = [];
 
-  for (const note of ExchangeNotes) {
-    const noteCount = Math.floor(amountRemaining / note);
+	for (const note of ExchangeNotes) {
+		const noteCount = Math.floor(amountRemaining / note);
 
-    if (noteCount > 0) {
-      exchangeToWithdraw.push({ [String(note)]: noteCount });
-      amountRemaining %= note;
-    }
+		if (noteCount > 0) {
+			exchangeToWithdraw.push({ [String(note)]: noteCount });
+			amountRemaining %= note;
+		}
 
-    if (amountRemaining === 0) {
-      break;
-    }
-  }
+		if (amountRemaining === 0) {
+			break;
+		}
+	}
 
-  return { withdraw: exchangeToWithdraw };
+	return { withdraw: exchangeToWithdraw };
 }

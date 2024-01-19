@@ -1,6 +1,6 @@
 import fastify from 'fastify';
-import { userController } from './controllers/user';
 import { atmController } from './controllers/atm';
+import { userController } from './controllers/user';
 
 const server = fastify();
 
