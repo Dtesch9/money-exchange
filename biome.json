@@ -10,7 +10,8 @@
 			"recommended": true,
 
 			"nursery": {
-				"useImportType": "warn"
+				"useImportType": "warn",
+				"noUnusedImports": "warn"
 			}
 		}
 	},
