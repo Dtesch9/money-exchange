@@ -1,6 +1,6 @@
 import type { RouteHandler } from 'fastify';
 
-import { getExchangeNotes } from '../services/getExchangeNotes';
+import { getExchangeNotes } from '../services/get-exchange-notes';
 
 type Params = { Params: { userId: string; amount: number } };
 
@@ -13,4 +13,4 @@ export const create: RouteHandler<Params> = (req, res) => {
 	return res.status(200).send(getExchangeNotes(Math.round(amount)));
 };
 
-export const atmController = { create };
+export const ATMController = { create };

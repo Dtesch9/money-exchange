@@ -47,4 +47,4 @@ export const find: RouteHandler<{ Params: { userId: string } }> = async (req, re
 	}
 };
 
-export const userController = { list, create, find };
+export const UserController = { list, create, find };

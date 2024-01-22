@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getExchangeNotes } from './getExchangeNotes';
+import { getExchangeNotes } from './get-exchange-notes';
 
 describe('Should return exchange with the minimum notes possible', () => {
 	it('Should return', () => {
