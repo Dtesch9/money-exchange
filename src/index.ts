@@ -1,4 +1,4 @@
-import app from './app';
+import app from './routes';
 
 app.listen({ port: 3030 }, (err, address) => {
 	if (err) {

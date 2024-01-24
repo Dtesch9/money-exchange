@@ -1,11 +1,11 @@
-import { compareSync, genSaltSync, hashSync } from 'bcryptjs';
+import bc from 'bcryptjs';
 
 function generateHash(password: string) {
-	return hashSync(password, genSaltSync(8));
+	return bc.hashSync(password, bc.genSaltSync(8));
 }
 
 function compareHash(password: string, hashedPassword: string) {
-	return compareSync(password, hashedPassword);
+	return bc.compareSync(password, hashedPassword);
 }
 
 export const HashProvider = { generateHash, compareHash };

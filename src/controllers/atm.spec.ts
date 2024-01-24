@@ -1,5 +1,5 @@
 import { test } from 'vitest';
-import app from '..';
+import server from '../routes';
 
 test('Should retrieve the right exchange', async ({ expect }) => {
 	const fixture = [
@@ -15,7 +15,7 @@ test('Should retrieve the right exchange', async ({ expect }) => {
 	];
 
 	for (const { amount, toExpect } of fixture) {
-		const response = await app.inject({
+		const response = await server.inject({
 			method: 'POST',
 			url: `/withdraw/${amount}`,
 		});
@@ -38,7 +38,7 @@ test('Should retrieve the right exchange', async ({ expect }) => {
 	};
 
 	const ops = Object.entries(fixture).map(async ([amount, notes]) => {
-		const response = await app.inject({
+		const response = await server.inject({
 			method: 'POST',
 			url: `/withdraw/${amount}`,
 		});

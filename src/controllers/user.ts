@@ -11,14 +11,16 @@ export const list: RouteHandler = async (_req, res) => {
 	}
 };
 
-export const create: RouteHandler<{ Body: { name: string } }> = async (req, res) => {
+export const create: RouteHandler<{ Body: { username: string; password: string } }> = async (req, res) => {
 	try {
-		const name = req.body?.name;
+		const username = req.body?.username;
+		const password = req.body?.password;
 
-		if (!name) return res.status(400).send('name is missing');
+		if (!username) return res.status(400).send('username is missing');
+		if (!password) return res.status(400).send('password is missing');
 
 		const user = await db.user.create({
-			data: { name, account: { create: { balance: 100 } } },
+			data: { username, password, account: { create: { balance: 100 } } },
 			include: { account: true },
 		});
 
