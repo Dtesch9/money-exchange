@@ -7,11 +7,13 @@ server.register(jwt, {
 	secret: 'supersecret',
 });
 
+const PublicRoutes = ['/authenticate/register', '/authenticate/login'];
+
 server.addHook('onRequest', async (request, reply) => {
 	try {
-		if (!request.url.endsWith('register') || !request.url.endsWith('login')) {
-			await request.jwtVerify();
-		}
+		if (PublicRoutes.includes(request.url)) return;
+
+		await request.jwtVerify();
 	} catch (err) {
 		reply.send(err);
 	}
